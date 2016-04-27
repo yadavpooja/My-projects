@@ -1,5 +1,5 @@
 def Vehicle():
-    dict = {1:50, 2:10,3:20,4:100,5:5}
+    tax = {1:50, 2:10,3:20,4:100,5:5}
     total_tax = 0
     car_count,car_tax = 0,0
     bus_count,bus_tax = 0,0
@@ -25,7 +25,7 @@ def Vehicle():
                 print "entry restricted"
             else:
                 print "welcome and pay tax 50rupees"
-                car_tax += 50
+                car_tax += tax.get(user)
 
         if user == 2:
             bus_count += 1
@@ -34,7 +34,7 @@ def Vehicle():
                 print "no entry for today"
             else:
                 print"welcome and pay tax 10rupees"
-                bus_tax += 10
+                bus_tax += tax.get(user)
 
         if user == 3:
             bike_count += 1
@@ -43,21 +43,24 @@ def Vehicle():
                 print "no entry now"
             else:
                 print"welcome and pay tax 20rupees"
-                bike_tax += 20
+                bike_tax += tax.get(user)
 
         if user == 4:
-            truck_count += 1
-            print "truck no %d " %(truck_count)
-            if truck_count > 2:
-                print "no entry for heavy vehicles now"
-            else:
+            import datetime
+            truck_time = datetime.datetime.now()
+            tt = truck_time.hour
+            if 6 > tt > 24:
+                truck_count += 1
+                print "truck no %d " %(truck_count)
                 print "welcome and pay tax 50rupees"
-                truck_tax += 100
+                truck_tax += tax.get(user)
+            else:
+                print "entry allowed after 24hours"
 
 
         if user == 5:
             auto_count += 1
-            auto_tax += 5
+            auto_tax += tax.get(user)
             print "auto no %d" %(auto_count)
             print"welcome and pay tax 5 rupees"
 
