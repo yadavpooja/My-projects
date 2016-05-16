@@ -1,14 +1,14 @@
 def login(username, password, data):
-    if name in data:
-        if data[name] == password:
+    if username in data:
+        if data[username] == password:
             return 0
         else:
             return 1
     return 2
 
 def register(username, password, data):
-    if name not in data:
-        data[name] = password
+    if username not in data:
+        data[username] = password
     return data
 
 
